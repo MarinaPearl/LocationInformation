@@ -1,6 +1,7 @@
 package com.demchuk.locationinformation.locationinformation;
 
 import com.demchuk.locationinformation.locationinformation.API.Weather;
+import com.demchuk.locationinformation.locationinformation.URL.СreatureURL;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;

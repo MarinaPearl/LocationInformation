@@ -7,7 +7,6 @@ import java.net.URL;
 
 public class URLtoString {
     private URL url;
-
     public String urlToString() {
         if (url == null) {
             return "";

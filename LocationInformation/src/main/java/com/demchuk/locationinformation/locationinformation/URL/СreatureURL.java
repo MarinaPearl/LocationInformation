@@ -1,4 +1,4 @@
-package com.demchuk.locationinformation.locationinformation;
+package com.demchuk.locationinformation.locationinformation.URL;
 import org.apache.http.client.utils.URIBuilder;
 
 import java.net.MalformedURLException;
@@ -16,9 +16,12 @@ public class СreatureURL {
     public СreatureURL(String str) {
         try {
             URIBuilder uriBuilder = new URIBuilder(str);
-            uriBuilder.addParameter(LOCATION_PARAMETR, "London,uk");
-            uriBuilder.addParameter(UNITS_MEASUREMENT_PARAMETR, UNITS_MEASUREMENT);
-            uriBuilder.addParameter(UNIQUE_API_KEY_PARAMETR, UNIQUE_API_KEY);
+//            uriBuilder.addParameter(LOCATION_PARAMETR, "London,uk");
+//            uriBuilder.addParameter(UNITS_MEASUREMENT_PARAMETR, UNITS_MEASUREMENT);
+//            uriBuilder.addParameter(UNIQUE_API_KEY_PARAMETR, UNIQUE_API_KEY);
+            uriBuilder.addParameter(LOCATION_PARAMETR, "berlin");
+            uriBuilder.addParameter("locale", "de");
+            uriBuilder.addParameter("key", "026e2ebb-27ed-491f-8020-5550503108a3");
             this.url = uriBuilder.build().toURL();
         } catch (URISyntaxException | MalformedURLException error) {
             error.printStackTrace();

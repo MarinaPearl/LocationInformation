@@ -16,4 +16,10 @@ module com.demchuk.locationinformation.locationinformation {
     exports com.demchuk.locationinformation.locationinformation;
     exports com.demchuk.locationinformation.locationinformation.API;
     opens com.demchuk.locationinformation.locationinformation.API to javafx.fxml;
+
+    exports com.demchuk.locationinformation.locationinformation.VC;
+    opens com.demchuk.locationinformation.locationinformation.VC to javafx.fxml;
+    exports com.demchuk.locationinformation.locationinformation.URL;
+    opens com.demchuk.locationinformation.locationinformation.URL to javafx.fxml;
+
 }
