@@ -13,17 +13,14 @@ public class СreatureURL {
     private final  String UNITS_MEASUREMENT_PARAMETR = "units";
     private final  String UNITS_MEASUREMENT = "metric";
 
-    public СreatureURL(String str) {
+    public СreatureURL(String str, String lat, String lon) {
         try {
             URIBuilder uriBuilder = new URIBuilder(str);
-//            uriBuilder.addParameter(LOCATION_PARAMETR, "London,uk");
-//            uriBuilder.addParameter(UNITS_MEASUREMENT_PARAMETR, UNITS_MEASUREMENT);
-//            uriBuilder.addParameter(UNIQUE_API_KEY_PARAMETR, UNIQUE_API_KEY);
-            uriBuilder.addParameter(LOCATION_PARAMETR, "berlin");
-            uriBuilder.addParameter("locale", "de");
-            uriBuilder.addParameter("key", "026e2ebb-27ed-491f-8020-5550503108a3");
-            this.url = uriBuilder.build().toURL();
-        } catch (URISyntaxException | MalformedURLException error) {
+            uriBuilder.addParameter("lat", lat);
+            uriBuilder.addParameter("lon", lon);
+            uriBuilder.addParameter(UNIQUE_API_KEY_PARAMETR, UNIQUE_API_KEY);
+            uriBuilder.addParameter("lang", "en");
+        } catch (URISyntaxException error) {
             error.printStackTrace();
         }
     }

@@ -2,6 +2,8 @@ package com.demchuk.locationinformation.locationinformation.VC;
 
 
 import com.demchuk.locationinformation.locationinformation.API.Place;
+import com.demchuk.locationinformation.locationinformation.ReceivingPlace;
+import com.demchuk.locationinformation.locationinformation.ReceivingWeather;
 import com.demchuk.locationinformation.locationinformation.URL.CreateURLforPlace;
 import com.demchuk.locationinformation.locationinformation.URLtoString;
 import com.demchuk.locationinformation.locationinformation.URL.СreatureURL;
@@ -25,26 +27,14 @@ public class Main {
 //              ReceivingWeather receivingWeather = new ReceivingWeather();
 //              receivingWeather.getWeather();
 //              receivingWeather.getTemperature();
-        try {
-            CreateURLforPlace creatureURl = new CreateURLforPlace("https://graphhopper.com/api/1/geocode");
-            URL url = creatureURl.getUrl();
-            URLtoString urLtoString = new URLtoString(url);
-            String s = urLtoString.urlToString();
-            JSONObject jsonObject = (JSONObject) JSONValue.parseWithException(s);
-            JSONArray jsonArray = (JSONArray) jsonObject.get("hits");
-            for (Object it : jsonArray) {
-                JSONObject j = (JSONObject) it;
-                Place place = new Place();
-                place.setPlaceName((String) j.get("name"));
-                place.setCountry((String) j.get("country"));
-                JSONObject cord = (JSONObject) j.get("point");
-                place.setLatitude((Double) cord.get("lat"));
-                place.setLongitude((Double) cord.get("lng"));
-                System.out.println(place.placeToString());
-            }
-        }catch (Exception error) {
-            error.printStackTrace();
-        }
+        ReceivingPlace receivingPlace = new ReceivingPlace();
+        receivingPlace.setListPlaces();
+        receivingPlace.printListPlaces();
+        String lat = receivingPlace.getLatitude().toString();
+        String lon = receivingPlace.getLongitude().toString();
+        ReceivingWeather receivingWeather = new ReceivingWeather(lat, lon);
+        receivingWeather.getWeather();
+        receivingWeather.getTemperature();
 
    }
 

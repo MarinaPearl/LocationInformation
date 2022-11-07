@@ -9,13 +9,13 @@ import org.json.simple.JSONValue;
 import java.net.URL;
 
 public class ReceivingWeather {
-    private final String API_WEATHER = "http://api.openweathermap.org/data/2.5/weather";
+    private final String API_WEATHER = "https://api.openweathermap.org/data/2.5/weather";
     JSONObject weather;
     JSONObject jsonObject;
     Weather getterWeather;
-    public ReceivingWeather() {
+    public ReceivingWeather(String lat, String lon) {
         try {
-            СreatureURL creatureURl = new СreatureURL(API_WEATHER);
+            СreatureURL creatureURl = new СreatureURL(API_WEATHER, lat, lon);
             URL url = creatureURl.getUrl();
             URLtoString urLtoString = new URLtoString(url);
             String s = urLtoString.urlToString();

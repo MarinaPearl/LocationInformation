@@ -40,8 +40,8 @@ public class Place {
 
     public String placeToString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(placeName + " " + country + " " + latitude.toString()
-                + " " + longitude.toString());
+        stringBuilder.append("Place: " + placeName + " Country: " + country + " Latitude: " + latitude.toString()
+                + " Longitude: " + longitude.toString());
         return stringBuilder.toString();
     }
 }
