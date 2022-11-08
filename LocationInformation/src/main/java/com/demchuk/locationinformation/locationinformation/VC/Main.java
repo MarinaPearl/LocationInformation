@@ -4,14 +4,9 @@ package com.demchuk.locationinformation.locationinformation.VC;
 import com.demchuk.locationinformation.locationinformation.API.Place;
 import com.demchuk.locationinformation.locationinformation.ReceivingPlace;
 import com.demchuk.locationinformation.locationinformation.ReceivingWeather;
-import com.demchuk.locationinformation.locationinformation.URL.CreateURLforPlace;
-import com.demchuk.locationinformation.locationinformation.URLtoString;
-import com.demchuk.locationinformation.locationinformation.URL.СreatureURL;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
 
-import java.net.URL;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 //    @Override
@@ -27,12 +22,24 @@ public class Main {
 //              ReceivingWeather receivingWeather = new ReceivingWeather();
 //              receivingWeather.getWeather();
 //              receivingWeather.getTemperature();
-        ReceivingPlace receivingPlace = new ReceivingPlace();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter Line");
+        String str = in.nextLine();
+        System.out.println(str);
+        ReceivingPlace receivingPlace = new ReceivingPlace(str);
         receivingPlace.setListPlaces();
         receivingPlace.printListPlaces();
-        String lat = receivingPlace.getLatitude().toString();
-        String lon = receivingPlace.getLongitude().toString();
-        ReceivingWeather receivingWeather = new ReceivingWeather(lat, lon);
+        ArrayList<Place> placeArrayList = receivingPlace.getPlaceArrayList();
+//        for (Place place : placeArrayList) {
+//            ReceivingWeather receivingWeather = new ReceivingWeather(place.getLatitude().toString(), place.getLongitude().toString());
+//            receivingWeather.getWeather();
+//            receivingWeather.getTemperature();
+//        }
+        System.out.println("Please, choose a place from the list!");
+        Integer number = in.nextInt();
+        System.out.println(number);
+        Place place = placeArrayList.get(number);
+        ReceivingWeather receivingWeather = new ReceivingWeather(place.getLatitude().toString(), place.getLongitude().toString());
         receivingWeather.getWeather();
         receivingWeather.getTemperature();
 

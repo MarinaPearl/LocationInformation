@@ -7,7 +7,6 @@ import java.net.URL;
 
 public class СreatureURL {
     private URL url;
-    private final String LOCATION_PARAMETR = "q";
     private final String UNIQUE_API_KEY = "241de9349721df959d8800c12ca4f1f3";
     private final String UNIQUE_API_KEY_PARAMETR = "appid";
     private final  String UNITS_MEASUREMENT_PARAMETR = "units";
@@ -19,8 +18,9 @@ public class СreatureURL {
             uriBuilder.addParameter("lat", lat);
             uriBuilder.addParameter("lon", lon);
             uriBuilder.addParameter(UNIQUE_API_KEY_PARAMETR, UNIQUE_API_KEY);
-            uriBuilder.addParameter("lang", "en");
-        } catch (URISyntaxException error) {
+            uriBuilder.addParameter(UNITS_MEASUREMENT_PARAMETR, UNITS_MEASUREMENT);
+            this.url = uriBuilder.build().toURL();
+        } catch (URISyntaxException | MalformedURLException error) {
             error.printStackTrace();
         }
     }
