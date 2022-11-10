@@ -17,6 +17,7 @@ public class URLtoString {
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
                 stringBuilder.append(inputLine);
+                //System.out.println(inputLine);
             }
         } catch (IOException e) {
             e.printStackTrace();

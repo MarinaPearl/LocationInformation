@@ -11,6 +11,7 @@ module com.demchuk.locationinformation.locationinformation {
     requires eu.hansolo.tilesfx;
     requires json.simple;
     requires httpclient;
+    requires lombok;
 
     opens com.demchuk.locationinformation.locationinformation to javafx.fxml;
     exports com.demchuk.locationinformation.locationinformation;
