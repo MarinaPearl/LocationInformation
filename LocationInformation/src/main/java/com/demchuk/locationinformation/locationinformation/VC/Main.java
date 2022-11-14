@@ -1,6 +1,7 @@
 package com.demchuk.locationinformation.locationinformation.VC;
 
 
+import com.demchuk.locationinformation.locationinformation.API.InterestingPlaces;
 import com.demchuk.locationinformation.locationinformation.API.Place;
 import com.demchuk.locationinformation.locationinformation.ReceivingInterestingPlaces;
 import com.demchuk.locationinformation.locationinformation.ReceivingPlace;
@@ -20,27 +21,26 @@ public class Main {
 
     public static void main(String[] args) {
         //launch(args);
-//              ReceivingWeather receivingWeather = new ReceivingWeather();
-//              receivingWeather.getWeather();
-//              receivingWeather.getTemperature();
-//        Scanner in = new Scanner(System.in);
-//        System.out.println("Enter Line");
-//        String str = in.nextLine();
-//        System.out.println(str);
-//        ReceivingPlace receivingPlace = new ReceivingPlace(str);
-//        receivingPlace.setListPlaces();
-//        receivingPlace.printListPlaces();
-//        ArrayList<Place> placeArrayList = receivingPlace.getPlaceArrayList();
-//        for (Place place : placeArrayList) {
-//            ReceivingWeather receivingWeather = new ReceivingWeather(place.getLatitude().toString(), place.getLongitude().toString());
-//            receivingWeather.getWeather();
-//            receivingWeather.getTemperature();
-//        }
-//
-        Double lon = 13.3888599;
-        Double lat = 52.5170365;
-        var receivingInterestingPlaces = new ReceivingInterestingPlaces(lon, lat);
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter Line");
+        String str = in.nextLine();
+        ReceivingPlace receivingPlace = new ReceivingPlace(str);
+        receivingPlace.setListPlaces();
+        receivingPlace.printListPlaces();
+        ArrayList<Place> placeArrayList = receivingPlace.getPlaceArrayList();
+        System.out.println("Choose place, please!");
+        int number = in.nextInt();
+        Place place = placeArrayList.get(number);
+        ReceivingWeather receivingWeather = new ReceivingWeather(place.getLatitude().toString(), place.getLongitude().toString());
+        receivingWeather.getWeather();
+        receivingWeather.getTemperature();
+        var receivingInterestingPlaces = new ReceivingInterestingPlaces(place.getLongitude(), place.getLatitude());
+        var listPlaces = receivingInterestingPlaces.getInterestingPlacesArrayList();
+        System.out.println("Interesting places: ");
+        for (InterestingPlaces list : listPlaces) {
+            System.out.println(list.getName() + " " + list.getLon() + " " + list.getLat());
+        }
 
-   }
+    }
 
 }

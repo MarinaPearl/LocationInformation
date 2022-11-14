@@ -17,8 +17,8 @@ public class СreatureURL {
             URIBuilder uriBuilder = new URIBuilder(str);
             uriBuilder.addParameter("lat", lat);
             uriBuilder.addParameter("lon", lon);
-            uriBuilder.addParameter(UNIQUE_API_KEY_PARAMETR, UNIQUE_API_KEY);
             uriBuilder.addParameter(UNITS_MEASUREMENT_PARAMETR, UNITS_MEASUREMENT);
+            uriBuilder.addParameter(UNIQUE_API_KEY_PARAMETR, UNIQUE_API_KEY);
             this.url = uriBuilder.build().toURL();
         } catch (URISyntaxException | MalformedURLException error) {
             error.printStackTrace();

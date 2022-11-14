@@ -9,7 +9,7 @@ import org.json.simple.JSONValue;
 import java.net.URL;
 
 public class ReceivingWeather {
-    private final String API_WEATHER = "https://api.openweathermap.org/data/2.5/weather";
+    private final String API_WEATHER = "http://api.openweathermap.org/data/2.5/weather";
     JSONObject weather;
     JSONObject jsonObject;
     Weather getterWeather;

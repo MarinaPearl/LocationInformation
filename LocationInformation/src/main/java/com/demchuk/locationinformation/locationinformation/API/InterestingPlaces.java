@@ -7,5 +7,5 @@ public class InterestingPlaces {
     @Setter @Getter private String name;
     @Setter @Getter private Double lon;
     @Setter @Getter private Double lat;
-
+    @Setter @Getter private String xid;
 }
