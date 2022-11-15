@@ -3,9 +3,11 @@ package com.demchuk.locationinformation.locationinformation.VC;
 
 import com.demchuk.locationinformation.locationinformation.API.InterestingPlaces;
 import com.demchuk.locationinformation.locationinformation.API.Place;
+import com.demchuk.locationinformation.locationinformation.ReceivingDescriptionPlace;
 import com.demchuk.locationinformation.locationinformation.ReceivingInterestingPlaces;
 import com.demchuk.locationinformation.locationinformation.ReceivingPlace;
 import com.demchuk.locationinformation.locationinformation.ReceivingWeather;
+import com.demchuk.locationinformation.locationinformation.URL.CreatureURlForDescription;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -37,9 +39,16 @@ public class Main {
         var receivingInterestingPlaces = new ReceivingInterestingPlaces(place.getLongitude(), place.getLatitude());
         var listPlaces = receivingInterestingPlaces.getInterestingPlacesArrayList();
         System.out.println("Interesting places: ");
+        int iter = 0;
         for (InterestingPlaces list : listPlaces) {
-            System.out.println(list.getName() + " " + list.getLon() + " " + list.getLat());
+            System.out.println(iter + " " + list.getName() + " " + list.getLon() + " " + list.getLat());
+            ++iter;
         }
+        ArrayList<String> xidList = receivingInterestingPlaces.getXidList();
+        System.out.println("Choose place ");
+        number = in.nextInt();
+        var receivingDescriptionPlace = new ReceivingDescriptionPlace(xidList.get(number));
+        receivingDescriptionPlace.printDescription();
 
     }
 

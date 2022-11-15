@@ -12,9 +12,11 @@ import java.util.ArrayList;
 
 public class ReceivingInterestingPlaces {
     @Getter private ArrayList<InterestingPlaces> interestingPlacesArrayList;
+    @Getter private  ArrayList<String> xidList;
     public ReceivingInterestingPlaces(Double lon, Double lat) {
         try {
             interestingPlacesArrayList = new ArrayList<InterestingPlaces>();
+            xidList = new ArrayList<String>();
             var interestingPlaces = new CreatureURLforInterestingPlaces(lon, lat);
             URL url = interestingPlaces.getUrl();
             URLtoString urLtoString = new URLtoString(url);
@@ -31,7 +33,7 @@ public class ReceivingInterestingPlaces {
                 interestingPlace.setName((String)name);
                 interestingPlace.setLon((Double) coordinates.get(0));
                 interestingPlace.setLat((Double) coordinates.get(1));
-                interestingPlace.setXid((String) getProperties.get("xid"));
+                xidList.add((String) getProperties.get("xid"));
                 interestingPlacesArrayList.add(interestingPlace);
             }
         }catch (Exception error) {
