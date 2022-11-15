@@ -2,6 +2,7 @@ package com.demchuk.locationinformation.locationinformation;
 
 import com.demchuk.locationinformation.locationinformation.API.Weather;
 import com.demchuk.locationinformation.locationinformation.URL.СreatureURL;
+import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -12,8 +13,9 @@ public class ReceivingWeather {
     private final String API_WEATHER = "http://api.openweathermap.org/data/2.5/weather";
     JSONObject weather;
     JSONObject jsonObject;
-    Weather getterWeather;
-    public ReceivingWeather(String lat, String lon) {
+    @Getter private Weather getterWeather;
+
+    public void receiveWeather(String lat, String lon) {
         try {
             СreatureURL creatureURl = new СreatureURL(API_WEATHER, lat, lon);
             URL url = creatureURl.getUrl();
@@ -23,22 +25,21 @@ public class ReceivingWeather {
             JSONArray jsonArray = (JSONArray) jsonObject.get("weather");
             this.weather = (JSONObject) jsonArray.get(0);
             getterWeather = new Weather();
-
+            getterWeather.setWeather((String) weather.get("main"));
+            getterWeather.setDescription((String) weather.get("description"));
+            JSONObject temp = (JSONObject) jsonObject.get("main");
+            getterWeather.setTemp((Double) temp.get("temp"));
+            getterWeather.setFeelsLike((Double) temp.get("feels_like"));
         } catch (Exception error) {
             error.printStackTrace();
         }
     }
 
-    public void getWeather() {
-        getterWeather.setWeather((String) weather.get("main"));
-        getterWeather.setDescription((String) weather.get("description"));
-        getterWeather.printWeather();
+    public void getWeather(Weather weather) {
+        weather.printWeather();
     }
 
-    public void getTemperature() {
-        JSONObject temp = (JSONObject) jsonObject.get("main");
-        getterWeather.setTemp((Double) temp.get("temp"));
-        getterWeather.setFeelsLike((Double) temp.get("feels_like"));
-        getterWeather.printTemperature();
+    public void getTemperature(Weather weather) {
+        weather.printTemperature();
     }
 }

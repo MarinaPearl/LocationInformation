@@ -3,6 +3,8 @@ package com.demchuk.locationinformation.locationinformation.API;
 import lombok.Getter;
 import lombok.Setter;
 
+
+
 public class Place {
     @Setter
     @Getter

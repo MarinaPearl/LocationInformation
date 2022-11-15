@@ -2,6 +2,7 @@ package com.demchuk.locationinformation.locationinformation;
 
 import com.demchuk.locationinformation.locationinformation.API.Place;
 import com.demchuk.locationinformation.locationinformation.URL.CreatureURLforPlace;
+import lombok.Getter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -13,7 +14,7 @@ import java.util.List;
 public class ReceivingPlace {
     private List<String> listPlaces;
     JSONObject jsonObject;
-    private  ArrayList<Place> placeArrayList;
+    @Getter private  ArrayList<Place> placeArrayList;
     public ReceivingPlace(String str) {
         try {
             listPlaces = new ArrayList<String>();
@@ -50,8 +51,7 @@ public class ReceivingPlace {
             ++count;
         }
     }
-
-    public ArrayList<Place> getPlaceArrayList() {
-        return placeArrayList;
+    public Place getPlace(int number) {
+        return placeArrayList.get(number);
     }
 }
