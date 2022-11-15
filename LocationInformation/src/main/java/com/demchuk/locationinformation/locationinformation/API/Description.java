@@ -4,5 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class Description {
-    @Getter @Setter private String description;
+    @Getter
+    @Setter
+    private String description;
 }

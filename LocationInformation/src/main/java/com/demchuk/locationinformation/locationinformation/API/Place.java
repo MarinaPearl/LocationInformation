@@ -1,47 +1,24 @@
 package com.demchuk.locationinformation.locationinformation.API;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class Place {
+    @Setter
+    @Getter
     private String placeName;
+    @Setter
+    @Getter
     private String country;
+    @Setter
+    @Getter
     private Double latitude;
+    @Setter
+    @Getter
     private Double longitude;
 
-    public String getPlaceName() {
-        return placeName;
-    }
-
-    public void setPlaceName(String placeName) {
-        this.placeName = placeName;
-    }
-
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
     public String placeToString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Place: " + placeName + " Country: " + country + " Latitude: " + latitude.toString()
-                + " Longitude: " + longitude.toString());
-        return stringBuilder.toString();
+        return "Place: " + placeName + " Country: " + country + " Latitude: " + latitude.toString()
+                + " Longitude: " + longitude.toString();
     }
 }

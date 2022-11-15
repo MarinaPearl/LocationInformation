@@ -7,7 +7,6 @@ import com.demchuk.locationinformation.locationinformation.ReceivingDescriptionP
 import com.demchuk.locationinformation.locationinformation.ReceivingInterestingPlaces;
 import com.demchuk.locationinformation.locationinformation.ReceivingPlace;
 import com.demchuk.locationinformation.locationinformation.ReceivingWeather;
-import com.demchuk.locationinformation.locationinformation.URL.CreatureURlForDescription;
 
 import java.util.ArrayList;
 import java.util.Scanner;
