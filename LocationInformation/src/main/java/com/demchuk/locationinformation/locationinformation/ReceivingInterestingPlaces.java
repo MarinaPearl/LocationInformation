@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ReceivingInterestingPlaces {
     @Getter private ArrayList<InterestingPlaces> interestingPlacesArrayList;
     @Getter private  ArrayList<String> xidList;
-    public ReceivingInterestingPlaces(Double lon, Double lat) {
+    public void receiveInterestingPlaces(Double lon, Double lat) {
         try {
             interestingPlacesArrayList = new ArrayList<InterestingPlaces>();
             xidList = new ArrayList<String>();
@@ -33,6 +33,7 @@ public class ReceivingInterestingPlaces {
                 interestingPlace.setName((String)name);
                 interestingPlace.setLon((Double) coordinates.get(0));
                 interestingPlace.setLat((Double) coordinates.get(1));
+                interestingPlace.setXid((String)getProperties.get("xid"));
                 xidList.add((String) getProperties.get("xid"));
                 interestingPlacesArrayList.add(interestingPlace);
             }

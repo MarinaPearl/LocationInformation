@@ -9,7 +9,7 @@ import org.json.simple.JSONValue;
 import java.net.URL;
 
 public class ReceivingDescriptionPlace {
-    Description description;
+    @Getter Description description;
     public ReceivingDescriptionPlace(String xid) {
         try {
             description = new Description();
@@ -23,8 +23,5 @@ public class ReceivingDescriptionPlace {
         }catch (Exception error) {
             error.printStackTrace();
         }
-    }
-    public void printDescription() {
-        System.out.println(description.getDescription());
     }
 }
