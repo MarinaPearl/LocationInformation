@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="520.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.demchuk.locationinformation.locationinformation.VC.ControllerMenu">
+   <children>
+      <ImageView fitHeight="609.0" fitWidth="830.0" opacity="0.61" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@locationInformation.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="request" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="398.0" />
+      <Button fx:id="send" layoutX="483.0" layoutY="5.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="98.0" text="Button" />
+      <ListView fx:id="places" layoutX="344.0" layoutY="86.0" prefHeight="392.0" prefWidth="200.0" />
+      <TextArea fx:id="description" layoutX="589.0" layoutY="86.0" prefHeight="386.0" prefWidth="200.0" />
+      <TextArea fx:id="weather" layoutX="14.0" layoutY="76.0" prefHeight="94.0" prefWidth="278.0" />
+   </children>
+</AnchorPane>

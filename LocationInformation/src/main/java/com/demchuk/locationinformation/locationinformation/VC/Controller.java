@@ -4,8 +4,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class Controller {
+    private Stage stage;
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 
     @FXML
     private ResourceBundle resources;
@@ -18,8 +23,8 @@ public class Controller {
 
     @FXML
     void initialize() {
-            start.setOnAction(event -> {
-                System.out.println("Hello world!");
+            start.setOnMouseClicked(event -> {
+               //MenuView menuView = new MenuView(stage);
             });
     }
 

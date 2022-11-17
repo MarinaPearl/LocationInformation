@@ -24,22 +24,38 @@ public class Worker {
             return receivingPlace.getPlace(number);
         });
         CompletableFuture<Weather> f2 = f1.thenApply(place -> {
+            if (place == null) {
+                System.out.println("tilt");
+                System.exit(1);
+            }
             assert false;
             ReceivingWeather receivingWeather = new ReceivingWeather();
             receivingWeather.receiveWeather(place.getLatitude().toString(), place.getLongitude().toString());
             return receivingWeather.getGetterWeather();
         });
-        CompletableFuture<Void> f3 = f2.thenAccept(weather -> {
-            ReceivingWeather receivingWeather = new ReceivingWeather();
-            receivingWeather.getWeather(weather);
-            receivingWeather.getTemperature(weather);
-        });
         CompletableFuture<ArrayList<InterestingPlaces>> f4 = f1.thenApply(place -> {
+            if (place == null) {
+                System.out.println("tilt");
+                System.exit(1);
+            }
             var receivingInterestingPlaces = new ReceivingInterestingPlaces();
             receivingInterestingPlaces.receiveInterestingPlaces(place.getLongitude(), place.getLatitude());
             return receivingInterestingPlaces.getInterestingPlacesArrayList();
         });
+        CompletableFuture<Void> f3 = f2.thenAccept(weather -> {
+            if (weather == null) {
+                System.out.println("tilt");
+                System.exit(1);
+            }
+            ReceivingWeather receivingWeather = new ReceivingWeather();
+            receivingWeather.getWeather(weather);
+            receivingWeather.getTemperature(weather);
+        });
         CompletableFuture<Void> f5 = f4.thenAccept(listPlaces -> {
+            if (listPlaces == null) {
+                System.out.println("tilt");
+                System.exit(1);
+            }
             int iter = 0;
             for (InterestingPlaces list : listPlaces) {
                 System.out.println(iter + " " + list.getName() + " " + list.getLon() + " " + list.getLat());
@@ -47,6 +63,10 @@ public class Worker {
             }
         });
         CompletableFuture<Description> f6 = f4.thenApply(listPlaces -> {
+            if (listPlaces == null) {
+                System.out.println("tilt");
+                System.exit(1);
+            }
             Scanner inSystem = new Scanner(System.in);
             System.out.println("Choose place ");
             int n = inSystem.nextInt();
@@ -55,6 +75,10 @@ public class Worker {
         });
 
         CompletableFuture<Void> f7 = f6.thenAccept(description -> {
+            if (description == null) {
+                System.out.println("tilt");
+                System.exit(1);
+            }
             System.out.println(description.getDescription());
         });
     }
